@@ -392,9 +392,13 @@ class Epson2GenComandos(ComandoFiscalInterface):
 
         return ret
 
+    """ @fchiappano Abrir cajon de dinero """
+    def openDrawer(self):
+        self.start()
+        ret = self.conector.driver.EpsonLibInterface.EnviarComando("0707|0000")
+        self.close()
 
-
-
+        return ret
 
 
 
@@ -405,9 +409,6 @@ class Epson2GenComandos(ComandoFiscalInterface):
         return []
 
     def setCodigoBarras(self, numero, tipoCodigo="CodigoTipoI2OF5", imprimeNumero="ImprimeNumerosCodigo"):
-        pass
-
-    def openDrawer(self):
         pass
 
     def openNonFiscalReceipt(self):
